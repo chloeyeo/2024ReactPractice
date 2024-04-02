@@ -1,0 +1,126 @@
+to build react on ngine x you do npm build then babel will convert react code to plain vanilla javascript
+so that then we can deploy the app! So must do npm build before deploying app.
+
+React auto refreshes on any code change+save so we don't need to use nodemon! (which we used when
+using node js to make it refresh on change+save since node js only does not do that so we have to 
+stop npm start then redo npm start each time we make change with just node <app_name> so thats why we
+used npm start: "nodemon <app_name>" on package.json when we used node js) with react js it is thus much easier!
+
+App.js is the starting point of react app.
+
+Node js require -> React import
+On npm build babale will convert react import to node js require since this language is different for each browser
+so babel converts import of react to require of javscript as well as converting react everything to vanilla js
+SO THAT it works on EVERY BROWSER.
+
+svg (type of image file) is in vector = in dotted line!
+
+[inside index.html]:
+Inside <div id="root"></div> we will add our App.js so that our app loads on screen.
+Under neath this div we put the kakao developers map as well.
+
+[inside index.js]:
+const root = ReactDOM.createRoot(...)
+root.render(<App/>)
+This is the root and app we put in html and we make sure it renders on screen.
+
+Everything is a component in React, including App js.
+
+Use state: component (=function component since hooks are used for function components only) re-renders
+when state value changes.
+
+Create 'assets' folder right inside src - this folder will contain all images(svg) etc. Css folder will also be inside assets folder.
+
+React component names should start with a capital letter!
+
+function App() {
+  return (
+    <div className="App">
+      <h1>hi</h1>
+      <Modal />
+    </div>
+  );
+}
+
+function Modal() {
+  return <div>test</div>;
+}
+
+This is how we stick the Modal component i.e. <Modal /> inside App component!
+then app will get rendered in index js and index html says WHERE those rendered components will be positioned on screen.
+
+React jsx uses className instead of class in html!
+i.e. <div className=""> in react jsx vs <div class=""> in html
+
+
+If in react return is one line, it does not need ()
+i.e. return <div></div> is possible without retunr() since this is just a single line
+but for more than a single line you need to add (), i.e.
+return (
+  <>
+      <div></div>
+  </>
+)
+as an example
+
+npx create-react-app creates all the boilerplate for us including package.json! so we dont have to
+e.g. specify manually what code npm start will run directly changing it in package.json etc
+
+StyleSheet style is in Object form, i.e, {} (if ur gonna write it inside js file)
+so e.g. const myStyle = {display:"flex", ...} use comma not ; since it is an object!
+Then in jsx(html-like) you can put e.g. <div className="flex" style={myStyle}>
+to paste in myStyle
+but inside style={..} <- used in jsx inside js file in react, you cannot write any style name with "-"
+i.e. you cannot write background-color since jsx will recognise this as a literal minus sign!!
+so you must use camelCase for style names in jsx to use css styles!
+I.e. style={backgroundColor:"",} is correct but style={background-color:"",} will give you an error.
+<div className="flex" style={backgroundColor:""}>
+
+jsx return must have ONE component; it CANNOT have more than one component returned!
+so all components must be WITHIN the one outermost component!
+
+ctrl+shift+w to wrap component inside some other component in jsx quick.
+
+if use sass and mixin to put css directly into js component in react, ONLY THAT 
+component will have that css/style - other components wont have access to that style
+- compare this with tradititional use of css when we have a separate css file shared by 
+all components - then easier to have merge conflicts too since all components have access to
+that style so if they change the same style -> conflict.
+
+import & export default App is ES6 new grammer (newer than require), used in react.
+
+import "./assets/css/style.css";
+
+function App() {
+  const myStyle = {
+    display: "flex",
+    background: "red",
+  };
+  function view(msg) {
+    alert(msg);
+  }
+  return (
+    // ctrl+shift+w to wrap component inside some other component quick.
+    <div>
+      <div style={myStyle}>
+        <h1 className="logo">hi</h1>
+        {/* this is the modal component! */}
+        <span>test</span>
+      </div>
+      {/* onClick={view}
+      OR onClick={()=>{view()}} <- bc this itself is not Calling the function; this itself is also just a function without the call()
+      just like view is the name of function on first line.  */}
+      <button
+        className="btn primary"
+        onClick={() => {
+          view("hi peeps");
+        }}
+      >
+        click
+      </button>
+    </div>
+  );
+}
+export default App;
+
+

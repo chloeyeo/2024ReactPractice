@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1 {
+  background: skyblue;
+}
+
+.logo {
+  width: 200px;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid grey;
+  background-color: skyblue;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: violet;
+}
+
+.btn.primary {
+  background-color: rgb(238, 218, 238);
+}
+
+.btn.primary:hover {
+  background-color: green;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: rgb(202, 202, 250);
+}
