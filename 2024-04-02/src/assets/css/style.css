@@ -3,6 +3,21 @@
   margin: 0;
   box-sizing: border-box;
 }
+ul,
+li {
+  list-style: none;
+}
+
+.menu {
+  display: flex;
+}
+.menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.menu li.active {
+  background: violet;
+}
 h1 {
   background: skyblue;
 }
@@ -22,6 +37,10 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
+}
+.btn.active {
+  background-color: violet;
+  color: black;
 }
 
 .btn:hover {
