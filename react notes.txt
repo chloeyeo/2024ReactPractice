@@ -89,6 +89,38 @@ that style so if they change the same style -> conflict.
 
 import & export default App is ES6 new grammer (newer than require), used in react.
 
+In App js:
+function countNum() {
+    return 100;
+ }
+then you can directly call in jsx as {countNum()}. the outer {} is bc
+to use JS in JSX we write {} - so everything inside {} is not jsx but js
+which is why we can call CountNum() which is in js.
+
+To use img, inside app.js:
+import logo from "./logo.svg";
+then in jsx (at bottom of app js): 
+<img src={logo} alt="" />
+
+INSTALL "ES7+ React/Redux/React-Native snippets" EXTENSION on vscode! then if you put imr+tab
+it will automatically import React from react...etc This extension is very good for various code snippets shortcuts like this!
+also try rfce+tab and rface+tab
+
+function App
+then
+export default App
+is SAME AS
+export default App
+and no export default at bottom
+
+for loops are NOT used in react in jsx!! instead you use .map()
+
+no need to use jquery in react bc the whole point of using jquery in vanilla js is to access dom nodes e.g. div elements
+easily instead of document.querySelector() we can use $(".className") in jquery to select dom element.
+but in REACT, we have JSX!! which means we Can DIRECTLY put in JS INTO HTML (=JSX syntax of react inside return() <- is jsx format).
+thus we could still use jquery if we wanted to in react, but there is literally no point of doing it since we can just direclty
+put in js into hsx(html-like syntax in return()) in react app!
+
 import "./assets/css/style.css";
 
 function App() {
@@ -98,6 +130,9 @@ function App() {
   };
   function view(msg) {
     alert(msg);
+  }
+  function countNum() {
+    return 100;
   }
   return (
     // ctrl+shift+w to wrap component inside some other component quick.
@@ -118,9 +153,12 @@ function App() {
       >
         click
       </button>
+      {countNum()}
     </div>
   );
 }
+
 export default App;
+
 
 
