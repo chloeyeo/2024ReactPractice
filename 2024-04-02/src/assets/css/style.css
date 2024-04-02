@@ -8,6 +8,22 @@ li {
   list-style: none;
 }
 
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+.tabs li {
+  cursor: pointer;
+  padding: 10px 20px;
+  background: grey;
+  color: white;
+}
+
+.tabs li.active {
+  background: violet;
+  color: darkblue;
+}
+
 .menu {
   display: flex;
 }
@@ -20,6 +36,8 @@ li {
 }
 h1 {
   background: skyblue;
+  display: inline-block;
+  padding: 0px 34px;
 }
 
 .logo {

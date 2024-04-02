@@ -8,34 +8,54 @@ const App = () => {
     "2.Lorem ipsum dolor sit amet consectetur adipisicing elit. A, hic?",
     "3.Lorem ipsum dolor sit amet consectetur adipisicing elit. A, hic?",
   ]);
-  // const [clicked, setClicked] = useState("false");
-  // function handleClick() {
-  //   setClicked(!clicked);
-  // }
+
   return (
     <>
       <h1>Tab Menu</h1>
-      <ul className="menu">
+      <ul className="tabs">
         {data.map((_, index) => {
           return (
-            <>
-              <li
-                className={index === num ? "active" : ""}
-                onClick={() => {
-                  setNum(index);
-                }}
-              >
-                Tab{index + 1}
-              </li>
-            </>
+            <li
+              className={index === num ? "active" : ""}
+              onClick={() => {
+                setNum(index);
+              }}
+            >
+              Tab{index + 1}
+            </li>
           );
         })}
       </ul>
       {data.map((data, index) => {
-        return <h3>{index === num ? data : ""}</h3>;
+        return <p>{index === num ? data : ""}</p>;
       })}
     </>
   );
+
+  // return (
+  //   <>
+  //     <h1>Tab Menu</h1>
+  //     <ul className="menu">
+  //       {data.map((_, index) => {
+  //         return (
+  //           <>
+  //             <li
+  //               className={`tab ${index === num ? "active" : ""}`}
+  //               onClick={() => {
+  //                 setNum(index);
+  //               }}
+  //             >
+  //               Tab{index + 1}
+  //             </li>
+  //           </>
+  //         );
+  //       })}
+  //     </ul>
+  //     {data.map((data, index) => {
+  //       return <h3>{index === num ? data : ""}</h3>;
+  //     })}
+  //   </>
+  // );
 };
 
 export default App;
