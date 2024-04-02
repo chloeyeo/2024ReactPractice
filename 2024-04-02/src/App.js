@@ -15,6 +15,12 @@ const App = () => {
   ]);
   const [editedContent, setEditedContent] = useState(["", "", "", ""]);
 
+  const handleTextAreaChange = (event) => {
+    const newContent = [...editedContent];
+    newContent[tabIndex] = event.target.value;
+    setEditedContent(newContent);
+  };
+
   return (
     <>
       <h2>Tab Menu</h2>
@@ -44,11 +50,7 @@ const App = () => {
             rows="10"
             placeholder="Start typing here..."
             value={editedContent[tabIndex]}
-            onChange={(event) => {
-              const newContent = [...editedContent];
-              newContent[tabIndex] = event.target.value;
-              setEditedContent(newContent);
-            }}
+            onChange={handleTextAreaChange}
           />
         </div>
       </div>
