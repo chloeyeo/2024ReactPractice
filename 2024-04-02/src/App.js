@@ -1,33 +1,55 @@
 import React, { useState } from "react";
 import "./assets/css/style.css";
 
-function App() {
-  const [test, setTest] = useState("initial");
-  function testChange(msg) {
-    setTest(msg);
+const App = () => {
+  const [title, setTitle] = useState(["Seoul", "Incheon", "Busan"]);
+
+  // spread (...) syntax:
+  const array = [1, 2, 3];
+  const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+  console.log(obj);
+  console.log(obj[0]);
+
+  function changeTitle() {
+    // alert("test");
+    let newArr = [...title]; // deep copy = distinct copy from original
+    newArr[0] = "Gyeonggi";
+    newArr[1] = "Busan";
+    newArr[2] = "Sungnam";
+    setTitle(newArr);
   }
-  console.log("component re-renders since state changed");
+  function addTitle() {
+    let newArr = [...title];
+    newArr.push("Jeju");
+    setTitle(newArr);
+  }
   return (
-    <>
-      <h1>{test}</h1>
-      <button
-        className="btn primary"
-        onClick={() => {
-          testChange("yeo");
-        }}
-      >
-        Click A
+    <div>
+      <div>
+        {title.map((region) => {
+          return (
+            <>
+              {region}
+              <br />
+            </>
+          );
+        })}
+      </div>
+      <button className="btn primary" onClick={addTitle}>
+        Add Region
       </button>
-      <button
+      {/* otherwise div itself is block level display block
+      so we change it to inline block otherwise button will take full width of screen
+      as block is one entire row */}
+      <div
         className="btn"
-        onClick={() => {
-          testChange("chloe");
-        }}
+        style={{ display: "inline-block" }}
+        onClick={changeTitle}
       >
-        Click B
-      </button>
-    </>
+        Change Region
+      </div>
+    </div>
   );
-}
+};
 
 export default App;
