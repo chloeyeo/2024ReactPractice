@@ -3,14 +3,28 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  margin: 20px;
+}
 ul,
 li {
   list-style: none;
 }
-
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
 .tabs {
   display: flex;
   margin-bottom: 10px;
+}
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  background: rgb(231, 131, 131);
+  color: black;
 }
 .tabs li {
   cursor: pointer;
