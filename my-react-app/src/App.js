@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ModalView from "./components/ModalView";
 import "./assets/css/style.css";
 
 const App = () => {
@@ -57,36 +58,13 @@ const App = () => {
         </ul>
       </div>
       {openModal ? (
-        <Modal
+        <ModalView
           openModal={openModal}
           setOpenModal={setOpenModal}
           viewList={viewList}
           clickedIndex={clickedIndex}
         />
       ) : null}
-    </>
-  );
-};
-
-const Modal = (props) => {
-  return (
-    <>
-      <div className="modalWrap">
-        <div className="modal">
-          <h3>
-            {props.clickedIndex + 1}. {props.viewList[props.clickedIndex].title}
-          </h3>
-          <p>{props.viewList[props.clickedIndex].content}</p>
-          <button
-            className="btn close"
-            onClick={() => {
-              props.setOpenModal(!props.openModal);
-            }}
-          >
-            Close Modal
-          </button>
-        </div>
-      </div>
     </>
   );
 };
