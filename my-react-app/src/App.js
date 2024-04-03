@@ -32,6 +32,11 @@ const App = () => {
     },
   ];
 
+  function handleClick(index) {
+    setOpenModal(!openModal);
+    setClickedIndex(index);
+  }
+
   return (
     <>
       <div className="listItems">
@@ -40,8 +45,7 @@ const App = () => {
             return (
               <li
                 onClick={() => {
-                  setOpenModal(!openModal);
-                  setClickedIndex(index);
+                  handleClick(index);
                 }}
               >
                 <h3>
