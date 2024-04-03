@@ -3,12 +3,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+html,
 body {
-  margin: 20px;
+  /* if you dont put height on html body, open modal will be at top */
+  height: 100%;
+  /* background-color: black; */
 }
 ul,
 li {
   list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wrap {
   /* border style is solid */
@@ -76,6 +84,7 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 .btn.active {
   background-color: violet;
@@ -86,6 +95,7 @@ h1 {
   background-color: white;
   border: 1px solid white;
   color: violet;
+  transform: translate(-10px, -10px);
 }
 
 .btn.primary {
@@ -93,10 +103,38 @@ h1 {
 }
 
 .btn.primary:hover {
-  background-color: green;
+  background-color: rgb(163, 93, 152);
   color: white;
 }
 
 .btn.secondary {
   background-color: rgb(202, 202, 250);
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background-color: violet;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modalWrap {
+  position: fixed;
+  /* shouldnt use opacity otherwise child modal will also get same opacity
+  instead use rgba to only apply the opacity to modalWrap but not inner modal. */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  left: 0;
+  top: 0;
 }
