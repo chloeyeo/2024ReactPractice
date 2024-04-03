@@ -6,6 +6,30 @@ REDUX was made to TAKE CARE OF STATES! Instead of passing down data as props, we
 useState to use a state inside ancestor component so that child components can all access
 the ancestor's state without having pass props! Using Redux Toolkit
 
+In react, we use map() instead of for loop. This is because for loop does Not have a return statement
+whereas map() has a return statement where inside return() is jsx.
+
+Inside return(): (i.e. in jsx)
+/* li*5>lorem10 then tab */
+{/* <li>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, minima.
+</li>
+<li>
+  Minima iure, officiis est sapiente eaque cupiditate soluta ab
+  mollitia.
+</li>
+<li>
+  Molestias ut deleniti consectetur laborum exercitationem nesciunt
+  sequi facilis totam.
+</li>
+<li>
+  Laudantium possimus deserunt recusandae a libero aliquid rem debitis
+  temporibus!
+</li>
+<li>
+  Ipsum sit nobis iure, quis non porro reprehenderit unde? Blanditiis.
+</li> */}
+
 to build react on ngine x you do npm build then babel will convert react code to plain vanilla javascript
 so that then we can deploy the app! So must do npm build before deploying app.
 
