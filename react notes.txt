@@ -1,6 +1,8 @@
 to build react on ngine x you do npm build then babel will convert react code to plain vanilla javascript
 so that then we can deploy the app! So must do npm build before deploying app.
 
+In react, static files such as images go inside the 'public' folder.
+
 React auto refreshes on any code change+save so we don't need to use nodemon! (which we used when
 using node js to make it refresh on change+save since node js only does not do that so we have to 
 stop npm start then redo npm start each time we make change with just node <app_name> so thats why we

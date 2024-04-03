@@ -10,6 +10,11 @@ ul,
 li {
   list-style: none;
 }
+.wrap {
+  /* border style is solid */
+  /* bd+tab */
+  border: 1px solid #000;
+}
 .inputSection {
   display: flex;
   flex-direction: column;
