@@ -1,3 +1,11 @@
+Data must be stored in the TOP-MOST parent, so that it can be passed downd to its child
+components -> grandchild components and so on via props. Thus data must ALWAYS be stored
+at the TOP i.e. the TOP.outer-most first ancestor, so that it can be passed down the
+descendants. This is COMPLEX (since there are so much passing down!) => THUS to simplify this,
+REDUX was made to TAKE CARE OF STATES! Instead of passing down data as props, we use
+useState to use a state inside ancestor component so that child components can all access
+the ancestor's state without having pass props! Using Redux Toolkit
+
 to build react on ngine x you do npm build then babel will convert react code to plain vanilla javascript
 so that then we can deploy the app! So must do npm build before deploying app.
 
