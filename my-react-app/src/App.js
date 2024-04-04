@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Modal4 from "./components/Modal4";
 import "./assets/css/style.scss";
-// 1. npm i axios
-// 2. import axios from "axios"
+
+// you can have multiple useEffects just like you can have multiple useStates.
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(0);
   async function insertData() {
     try {
       const response = await axios.get(
@@ -17,17 +20,42 @@ const App = () => {
       console.error(error);
     }
   }
+  function closeModal() {
+    setOpenModal(false);
+  }
+  // if dependency list is empty, useEffect loads its own function only
+  // once on load i.e. on load of App function. I.e. runs only once after
+  // initial rerender if empty dependency list.
+  useEffect(() => {
+    insertData();
+  }, []); // [num] calls axios everytime num changes
   return (
     <>
-      <div>On Click Axios</div>
-      <button onClick={insertData}>Input Data</button>
-      <ul>
+      {/* <button>Input Data</button> */}
+      <ul className="posts">
         {posts.length > 0
           ? posts.map((post, index) => {
-              return <li key={index}>{post.title}</li>;
+              return (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setOpenModal(true);
+                    setClickedIndex(index);
+                  }}
+                >
+                  {post.title}
+                </li>
+              );
             })
           : null}
       </ul>
+      {openModal ? (
+        <Modal4
+          posts={posts}
+          clickedIndex={clickedIndex}
+          closeModal={closeModal}
+        />
+      ) : null}
     </>
   );
 };
