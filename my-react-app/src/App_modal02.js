@@ -59,7 +59,6 @@ const App = () => {
       </div>
       {openModal ? (
         <ModalView
-          openModal={openModal}
           setOpenModal={setOpenModal}
           viewList={viewList}
           clickedIndex={clickedIndex}

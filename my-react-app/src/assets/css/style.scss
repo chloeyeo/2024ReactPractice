@@ -14,6 +14,24 @@ body {
   flex-direction: column;
 }
 
+$primary: skyblue;
+$fontColorGray: #444;
+$fontColorWhite: white;
+$hover: blue;
+
+.dataList {
+  li {
+    background-color: $primary;
+    padding: 10px;
+    border-radius: 10px;
+    color: $fontColorWhite;
+    cursor: pointer;
+    &:hover {
+      background: $hover;
+    }
+  }
+}
+
 ul,
 li {
   list-style: none;

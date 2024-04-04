@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "./assets/css/style.scss";
+import ListDataModal from "./components/ListDataModal";
 // 1. npm i sass
 // 2. create style.scss file in css folder in assets folder in src folder.
 // 3. import style.scss file from App.js
 
 const App = () => {
   const [viewData, setViewData] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
   const [name, setName] = useState("");
   const [clicked, setClicked] = useState(false);
-  function clickHandler() {
+  const [listIndex, setListIndex] = useState(0);
+  function submitHandler() {
     setClicked(true);
     let newViewData = [...viewData];
     // list.push(item) pushes item to END of list,
@@ -25,6 +28,10 @@ const App = () => {
     setName(event.target.value);
     setClicked(false);
   }
+  function listClickHandler(index) {
+    setOpenModal(!openModal);
+    setListIndex(index);
+  }
   return (
     <>
       <div className="inputArea">
@@ -39,19 +46,32 @@ const App = () => {
           placeholder="Type your name here..."
           value={name}
         />
+        <button onClick={submitHandler}>Submit</button>
       </div>
-      <div className="buttonTextArea">
-        <button onClick={clickHandler}>Submit</button>
+      <div className="listArea">
         {name && clicked ? <h3>Your name is {name}</h3> : null}
         <ul className="dataList">
           {viewData.map((data, index) => {
             return (
-              <li key={index}>
+              <li
+                key={index}
+                onClick={() => {
+                  listClickHandler(index);
+                }}
+              >
                 {index + 1}. {data}
               </li>
             );
           })}
         </ul>
+        {openModal ? (
+          <ListDataModal
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+            dataList={viewData}
+            listIndex={listIndex}
+          />
+        ) : null}
       </div>
     </>
   );
