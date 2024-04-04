@@ -13,9 +13,13 @@ const App = () => {
     let newViewData = [...viewData];
     // list.push(item) pushes item to END of list,
     // but list.unshift(item) pushes item to FRONT of list!
-    newViewData.unshift(name);
+    // problem with unshift() is that it takes out all the existing data in list
+    // THEN puts newData at front then adds all exisitng data back into list
+    // so unshift() takes up more memory! so is not good practice.
+    newViewData.push(name);
     setViewData(newViewData);
-    console.log(viewData);
+    setName(""); // to clear input data in <input>
+    // console.log(viewData);
   }
   function inputHandler(event) {
     setName(event.target.value);
@@ -42,7 +46,7 @@ const App = () => {
         <ul className="dataList">
           {viewData.map((data, index) => {
             return (
-              <li>
+              <li key={index}>
                 {index + 1}. {data}
               </li>
             );
