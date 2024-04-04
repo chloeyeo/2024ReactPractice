@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #222;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+$primary-color: green;
+$secondary-color: pink;
+$fontSizeL: 30px;
+$fontSizeM: 20px;
+$fontSizeS: 10px;
+$fontColor: white;
+$shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: $primary-color;
+  font-size: $fontSizeL;
+  color: $fontColor;
+  box-shadow: $shadow;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    background: skyblue;
+  }
+  .gnbMenu {
+    ul {
+      display: flex;
+      li {
+        background: $primary-color;
+      }
+    }
+  }
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: $secondary-color;
+  font-size: $fontSizeL;
+  box-shadow: $shadow;
+  .active {
+    background-color: blue;
+    color: $fontColor;
+    font-size: $fontSizeS;
+  }
+  //   instead of writing .box1 > .active { background-color:red; } in css
+  // in scss:
+  > .active {
+    background-color: red;
+    font-size: $fontSizeM;
+  }
+  //   & is for class name that is written next to box1, i.e. for .box1.active
+  //  without & is any descendent of .box1, and > .active is DIRECT descendent/child of .box1
+  &.active {
+    background-color: violet;
+  }
+}
