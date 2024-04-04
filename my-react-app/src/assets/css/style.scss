@@ -19,6 +19,15 @@ body {
   gap: 10px;
 }
 
+.listArea {
+  margin-top: 10px;
+}
+.dataList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 $primary: skyblue;
 $fontColorGray: #444;
 $fontColorWhite: white;
