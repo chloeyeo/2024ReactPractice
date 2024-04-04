@@ -17,6 +17,8 @@ const App = () => {
 
   const handleTextAreaChange = (event) => {
     const newContent = [...editedContent];
+    // event.target is the textarea element itself, and the value retrieves
+    // the current value of (that user typed into)the textarea field.
     newContent[tabIndex] = event.target.value;
     setEditedContent(newContent);
   };
