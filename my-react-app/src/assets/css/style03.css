@@ -29,19 +29,30 @@ img {
   width: 100%;
 }
 
-.pagination ul {
+.pagination {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
-.pagination ul li {
+.pagination .prev,
+.pagination .next {
+  cursor: pointer;
+}
+.pagination .paginationBullets {
+  display: flex;
+  flex-direction: row;
+}
+.pagination .paginationBullets li {
   cursor: pointer;
   padding: 5px 10px;
   background-color: skyblue;
 }
-.pagination ul li:hover {
+.pagination .paginationBullets li.active {
+  background-color: rgb(91, 155, 180);
+}
+.pagination .paginationBullets li:hover {
   background-color: blue;
   color: white;
 }/*# sourceMappingURL=style03.css.map */

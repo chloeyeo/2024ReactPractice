@@ -1,5 +1,6 @@
 $primary: skyblue;
 $secondary: blue;
+$tertiary: rgb(91, 155, 180);
 $light: white;
 
 /* reset start */
@@ -37,16 +38,25 @@ img {
 }
 
 .pagination {
-  ul {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  .prev,
+  .next {
+    cursor: pointer;
+  }
+  .paginationBullets {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: row;
     li {
       cursor: pointer;
       padding: 5px 10px;
       background-color: $primary;
+    }
+    li.active {
+      background-color: $tertiary;
     }
     li:hover {
       background-color: $secondary;
