@@ -44,6 +44,13 @@ const App = () => {
         <ul>
           <li
             onClick={() => {
+              setCurrentPage(currentPage - 1);
+            }}
+          >
+            &#8678;
+          </li>
+          <li
+            onClick={() => {
               setCurrentPage(1);
             }}
           >
@@ -83,6 +90,13 @@ const App = () => {
             }}
           >
             6
+          </li>
+          <li
+            onClick={() => {
+              setCurrentPage(currentPage + 1);
+            }}
+          >
+            &#8680;
           </li>
         </ul>
       </div>
