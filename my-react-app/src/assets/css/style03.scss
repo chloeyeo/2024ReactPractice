@@ -1,0 +1,35 @@
+$primary: skyblue;
+
+/* reset start */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+/* reset end */
+
+.wrap {
+  border: 1px solid $primary;
+  padding: 10px;
+  .imgWrap {
+    img {
+      width: 100%;
+    }
+  }
+}

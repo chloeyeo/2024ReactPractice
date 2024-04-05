@@ -3,24 +3,73 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   /* if you dont put height on html body, open modal will be at top */
   height: 100%;
-  /* background-color: black; */
+  background-color: gray;
 }
+
 #root {
   display: flex;
+  flex-direction: column;
 }
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listArea {
+  margin-top: 10px;
+}
+
+.dataList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dataList li {
+  background-color: skyblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.dataList li:hover {
+  background: rgb(92, 92, 233);
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.posts li {
+  background-color: skyblue;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.posts li:hover {
+  background-color: rgb(92, 92, 233);
+  color: white;
+}
+
 ul,
 li {
   list-style: none;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .wrap {
   /* border style is solid */
   /* bd+tab */
@@ -28,22 +77,26 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
 .inputSection {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   gap: 20px;
 }
+
 .tabs {
   display: flex;
   margin-bottom: 10px;
 }
+
 .tab {
   cursor: pointer;
   padding: 10px 20px;
   background: rgb(231, 131, 131);
   color: black;
 }
+
 .tabs li {
   cursor: pointer;
   padding: 10px 20px;
@@ -59,13 +112,16 @@ body {
 .menu {
   display: flex;
 }
+
 .menu li {
   padding: 10px 15px;
   cursor: pointer;
 }
+
 .menu li.active {
   background: violet;
 }
+
 h1 {
   background: skyblue;
   display: inline-block;
@@ -89,6 +145,7 @@ h1 {
   transition: 0.3s;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
+
 .btn.active {
   background-color: violet;
   color: black;
@@ -129,6 +186,21 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* has dflex so gan use gap */
+  gap: 20px;
+  padding: 30px;
+}
+.modal h5,
+.modal p {
+  background-color: skyblue;
+  color: rgb(32, 32, 32);
+  padding: 10px;
+}
+.modal p {
+  font-size: 13px;
 }
 
 .listItems {
@@ -168,7 +240,7 @@ h1 {
 .modalWrap {
   position: fixed;
   /* shouldnt use opacity otherwise child modal will also get same opacity
-  instead use rgba to only apply the opacity to modalWrap but not inner modal. */
+    instead use rgba to only apply the opacity to modalWrap but not inner modal. */
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
@@ -180,13 +252,4 @@ h1 {
   position: absolute;
   right: 10px;
   top: 10px;
-}
-
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* has dflex so gan use gap */
-  gap: 20px;
-  padding: 30px;
-}
+}/*# sourceMappingURL=style.css.map */

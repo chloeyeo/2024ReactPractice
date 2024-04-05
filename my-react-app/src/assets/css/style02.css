@@ -18,5 +18,44 @@ li {
 .box {
   width: 100px;
   height: 100px;
-  background-color: skyblue;
+  background-color: green;
+  font-size: 30px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.container h1 {
+  background: skyblue;
+}
+.container .gnbMenu ul {
+  display: flex;
+}
+.container .gnbMenu ul li {
+  background: green;
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  font-size: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.box1 .active {
+  background-color: blue;
+  color: white;
+  font-size: 10px;
+}
+.box1 > .active {
+  background-color: red;
+  font-size: 20px;
+}
+.box1.active {
+  background-color: violet;
+}/*# sourceMappingURL=style02.css.map */

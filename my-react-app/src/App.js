@@ -1,63 +1,34 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Modal4 from "./components/Modal4";
-import "./assets/css/style.scss";
-
-// you can have multiple useEffects just like you can have multiple useStates.
+import axios from "axios"; // npm i axios
+import "./assets/css/style03.scss"; // npm i sass
 
 const App = () => {
-  const [posts, setPosts] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
-  const [clickedIndex, setClickedIndex] = useState(0);
-  async function insertData() {
-    try {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts?_page=1&_limit=20"
-      );
-      console.log(response.data);
-      setPosts(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  function closeModal() {
-    setOpenModal(false);
-  }
-  // if dependency list is empty, useEffect loads its own function only
-  // once on load i.e. on load of App function. I.e. runs only once after
-  // initial rerender if empty dependency list.
-  useEffect(() => {
-    insertData();
-  }, []); // [num] calls axios everytime num changes
+  const [myData, setMyData] = useState(10);
+  const [product, setProduct] = useState([
+    { title: "상품1", price: "1000", img: "img1.jpg" },
+    { title: "상품2", price: "2000", img: "img2.jpg" },
+  ]);
   return (
     <>
-      {/* <button>Input Data</button> */}
-      <ul className="posts">
-        {posts.length > 0
-          ? posts.map((post, index) => {
-              return (
-                <li
-                  key={index}
-                  onClick={() => {
-                    setOpenModal(true);
-                    setClickedIndex(index);
-                  }}
-                >
-                  {post.title}
-                </li>
-              );
-            })
-          : null}
-      </ul>
-      {openModal ? (
-        <Modal4
-          posts={posts}
-          clickedIndex={clickedIndex}
-          closeModal={closeModal}
-        />
-      ) : null}
+      <div className="wrap">
+        test
+        <MyProps myData={myData} product={product} />
+      </div>
     </>
   );
 };
+
+function MyProps({ myData, product }) {
+  return (
+    <>
+      <div className="wrap">
+        MyProps: {myData} Product: {product[0].title},{product[0].price}
+        <div className="imgWrap">
+          <img src={`./images/${product[0].img}`} alt="" />
+        </div>
+      </div>
+    </>
+  );
+}
 
 export default App;
