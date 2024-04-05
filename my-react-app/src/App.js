@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios"; // npm i axios
+import React, { useState } from "react";
+import MyProps from "./components/MyProps";
 import "./assets/css/style03.scss"; // npm i sass
 
 const App = () => {
-  const [myData, setMyData] = useState(10);
-  const [product, setProduct] = useState([
+  const [myData] = useState(10);
+  const [product] = useState([
     { title: "상품1", price: "1000", img: "img1.jpg" },
     { title: "상품2", price: "2000", img: "img2.jpg" },
   ]);
+  function test() {
+    console.log("test");
+  }
   return (
     <>
       <div className="wrap">
         test
-        <MyProps myData={myData} product={product} />
+        <MyProps myData={myData} product={product} run={test} />
       </div>
     </>
   );
 };
-
-function MyProps({ myData, product }) {
-  return (
-    <>
-      <div className="wrap">
-        MyProps: {myData} Product: {product[0].title},{product[0].price}
-        <div className="imgWrap">
-          <img src={`./images/${product[0].img}`} alt="" />
-        </div>
-      </div>
-    </>
-  );
-}
 
 export default App;
