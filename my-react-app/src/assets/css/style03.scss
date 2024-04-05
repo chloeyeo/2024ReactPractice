@@ -1,4 +1,6 @@
 $primary: skyblue;
+$secondary: blue;
+$light: white;
 
 /* reset start */
 * {
@@ -30,6 +32,25 @@ img {
   .imgWrap {
     img {
       width: 100%;
+    }
+  }
+}
+
+.pagination {
+  ul {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    li {
+      cursor: pointer;
+      padding: 5px 10px;
+      background-color: $primary;
+    }
+    li:hover {
+      background-color: $secondary;
+      color: $light;
     }
   }
 }

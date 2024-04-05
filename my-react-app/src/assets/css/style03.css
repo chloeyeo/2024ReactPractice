@@ -27,4 +27,21 @@ img {
 }
 .wrap .imgWrap img {
   width: 100%;
+}
+
+.pagination ul {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.pagination ul li {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: skyblue;
+}
+.pagination ul li:hover {
+  background-color: blue;
+  color: white;
 }/*# sourceMappingURL=style03.css.map */
