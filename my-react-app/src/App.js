@@ -10,7 +10,7 @@ const App = () => {
         <div className="bg-sb-300 rounded-md p-4">test1</div>
         <div className="bg-sb-300 rounded-md p-4">test2</div>
         <div className="bg-sb-300 rounded-md p-4">test3</div>
-        <div className="bg-sb-300 rounded-md p-4">test4</div>
+        <div className="bg-sb-300 rounded-md p-4 md:hidden">test4</div>
       </div>
     </>
   );
