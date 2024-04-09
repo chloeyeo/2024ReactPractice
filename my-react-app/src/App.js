@@ -43,7 +43,7 @@ const App = () => {
               placeholder="패스워드를 입력하세요"
             />
           </div>
-          <div className="md-6"></div>
+          <div className="mb-6"></div>
           <div>
             <button className="w-full text-xs text-white bg-gray-700 px-4 py-2 rounded-md hover:bg-gray-600">
               회원가입
