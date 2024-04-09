@@ -4,7 +4,9 @@ import "./assets/css/tailwindStyle.css";
 const App = () => {
   return (
     <>
-      <div className="container mx-auto bg-newYorkPink-500">test</div>
+      <div className="container mx-auto bg-gray-400 p-4 rounded-md text-white text-2xl hover:bg-gray-800">
+        test
+      </div>
     </>
   );
 };
