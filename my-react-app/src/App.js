@@ -8,12 +8,35 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 function reducer(state, action) {
   // state is the initialState we passed into store along with reducer
   // console.log(state); // object -> num:0
-  console.log(action);
-  if (action.type === "num/increment") {
-    return { ...state, num: state.num + action.payload };
-  }
+  // console.log(action);
+  // if (action.type === "num/increment") {
+  //   return {
+  //     ...state,
+  //     num: state.num + action.payload,
+  //     // title: state.title + action.payload,
+  //   };
+  // }
+  // if (action.type === "title/modify") {
+  //   return {
+  //     ...state,
+  //     title: state.title + " " + action.payload,
+  //   };
+  // }
 
-  return state;
+  switch (action.type) {
+    case "num/increment":
+      return {
+        ...state,
+        num: state.num + action.payload,
+      };
+    case "title/modify":
+      return {
+        ...state,
+        title: state.title + " " + action.payload,
+      };
+    default:
+      return state;
+  }
 }
 
 const initialState = {
@@ -83,6 +106,14 @@ function ChildTwo() {
           }}
         >
           click
+        </button>
+        <button
+          className="border bg-slate-600 text-white px-3 py-1 rounded-md hover:bg-slate-300 hover:text-black"
+          onClick={() => {
+            dispatch({ type: "title/modify", payload: "changed" });
+          }}
+        >
+          changeText
         </button>
       </div>
     </>
