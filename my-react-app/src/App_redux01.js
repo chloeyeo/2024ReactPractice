@@ -7,12 +7,12 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 // stores data in f12->application tab->local storage tab.
 // you can delete persist:root
 // configure persist with lib
-// import { persistStore, persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 // ctrl+shift+w + div.box
 
-function reducer(state, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case "num/increment":
       return {
@@ -35,21 +35,21 @@ const initialState = {
   content: "Lorem ipsum dolor sit amet.",
 };
 
-// const persistConfig = {
-//   key: "root",
-//   // storage: 1. cookie 2. session 3. localstorage
-//   // localstorage is most commonly used as storage
-//   // if you use session you need to put session value in database
-//   storage,
-// };
+const persistConfig = {
+  key: "root",
+  // storage: 1. cookie 2. session 3. localstorage
+  // localstorage is most commonly used as storage
+  // if you use session you need to put session value in database
+  storage,
+};
 
-// const myPersistReducer = persistReducer(persistConfig, reducer);
+const myPersistReducer = persistReducer(persistConfig, reducer);
 
-const store = createStore(reducer, initialState);
-// const store = createStore(myPersistReducer);
+// const store = createStore(reducer, initialState);
+const store = createStore(myPersistReducer);
 
 // // persistor is the one that actually stores
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
 const App = () => {
   return (
