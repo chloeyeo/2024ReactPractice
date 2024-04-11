@@ -11,7 +11,11 @@ function reducer(state, action) {
   return state;
 }
 
-const initialState = { num: 0 };
+const initialState = {
+  num: 0,
+  title: "hi",
+  content: "Lorem ipsum dolor sit amet.",
+};
 
 const store = createStore(reducer, initialState);
 
@@ -31,10 +35,14 @@ const App = () => {
 };
 
 function ChildOne() {
+  const content = useSelector((state) => {
+    return state.content;
+  });
   return (
     <>
       <div className="box border p-4">
         <h3>childone</h3>
+        <h5>content ( {content} )</h5>
         <ChildTwo />
       </div>
     </>
@@ -43,15 +51,25 @@ function ChildOne() {
 
 function ChildTwo() {
   // state is initialState passed into store
-  const num = useSelector((state) => {
-    return state.num;
-  });
+  // const num = useSelector((state) => {
+  //   return state.num;
+  // });
+  // const title = useSelector((state) => {
+  //   return state.title;
+  // });
+
+  // destructuring
+  // const { num, title } = useSelector((state) => {
+  //   return state;
+  // });
+  const { num, title } = useSelector((state) => state); // same as above (for one liner don't need {return;})
   // console.log(num);
   return (
     <>
       <div className="box border p-4">
         <h3>childtwo</h3>
-        number({num})
+        <h5>number ( {num} )</h5>
+        <h5>title ( {title} )</h5>
       </div>
     </>
   );
