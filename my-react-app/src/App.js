@@ -3,26 +3,16 @@ import "./assets/css/tailwindStyle.css";
 import { createStore } from "redux";
 import { Provider, useSelector, useDispatch } from "react-redux";
 
+// redux-persist used to store data in localstorage so that it doesn't disappear on page reload
+// stores data in f12->application tab->local storage tab.
+// you can delete persist:root
+// configure persist with lib
+// import { persistStore, persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
+
 // ctrl+shift+w + div.box
 
 function reducer(state, action) {
-  // state is the initialState we passed into store along with reducer
-  // console.log(state); // object -> num:0
-  // console.log(action);
-  // if (action.type === "num/increment") {
-  //   return {
-  //     ...state,
-  //     num: state.num + action.payload,
-  //     // title: state.title + action.payload,
-  //   };
-  // }
-  // if (action.type === "title/modify") {
-  //   return {
-  //     ...state,
-  //     title: state.title + " " + action.payload,
-  //   };
-  // }
-
   switch (action.type) {
     case "num/increment":
       return {
@@ -45,7 +35,21 @@ const initialState = {
   content: "Lorem ipsum dolor sit amet.",
 };
 
+// const persistConfig = {
+//   key: "root",
+//   // storage: 1. cookie 2. session 3. localstorage
+//   // localstorage is most commonly used as storage
+//   // if you use session you need to put session value in database
+//   storage,
+// };
+
+// const myPersistReducer = persistReducer(persistConfig, reducer);
+
 const store = createStore(reducer, initialState);
+// const store = createStore(myPersistReducer);
+
+// // persistor is the one that actually stores
+// const persistor = persistStore(store);
 
 const App = () => {
   return (
@@ -78,21 +82,8 @@ function ChildOne() {
 }
 
 function ChildTwo() {
-  // state is initialState passed into store
-  // const num = useSelector((state) => {
-  //   return state.num;
-  // });
-  // const title = useSelector((state) => {
-  //   return state.title;
-  // });
-
-  // destructuring
-  // const { num, title } = useSelector((state) => {
-  //   return state;
-  // });
-  const { num, title } = useSelector((state) => state); // same as above (for one liner don't need {return;})
+  const { num, title } = useSelector((state) => state);
   const dispatch = useDispatch();
-  // console.log(num);
   return (
     <>
       <div className="box border p-4">
