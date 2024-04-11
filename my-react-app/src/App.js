@@ -1,13 +1,18 @@
 import React from "react";
 import "./assets/css/tailwindStyle.css";
 import { createStore } from "redux";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useSelector, useDispatch } from "react-redux";
 
 // ctrl+shift+w + div.box
 
 function reducer(state, action) {
   // state is the initialState we passed into store along with reducer
   // console.log(state); // object -> num:0
+  console.log(action);
+  if (action.type === "num/increment") {
+    return { ...state, num: state.num + action.payload };
+  }
+
   return state;
 }
 
@@ -63,6 +68,7 @@ function ChildTwo() {
   //   return state;
   // });
   const { num, title } = useSelector((state) => state); // same as above (for one liner don't need {return;})
+  const dispatch = useDispatch();
   // console.log(num);
   return (
     <>
@@ -70,6 +76,14 @@ function ChildTwo() {
         <h3>childtwo</h3>
         <h5>number ( {num} )</h5>
         <h5>title ( {title} )</h5>
+        <button
+          className="border bg-slate-600 text-white px-3 py-1 rounded-md hover:bg-slate-300 hover:text-black"
+          onClick={() => {
+            dispatch({ type: "num/increment", payload: 1 });
+          }}
+        >
+          click
+        </button>
       </div>
     </>
   );
