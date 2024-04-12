@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 const Counter = ({ data }) => {
+  // Counter is a component that USES the state and displayes parts of the state!
   //  we put useSelector in components that USE/subscribe to the state!
   //   const num = useSelector((state) => {
   //     return state.num;

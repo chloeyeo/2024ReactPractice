@@ -12,7 +12,7 @@ const counterReducer = (state = initialState, action) => {
       return {
         ...state,
         num: state.num + action.payload,
-      };
+      }; // returns updated state
     default:
       return state;
   }
