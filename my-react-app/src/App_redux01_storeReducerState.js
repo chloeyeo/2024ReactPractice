@@ -1,14 +1,16 @@
 import React from "react";
 import "./assets/css/tailwindStyle.css";
 import { createStore } from "redux";
-import { Provider, useSelector, useDispatch } from "react-redux";
+import { Provider, useSelector, useDispatch } from "react-redux"; //useConnect (these are the 4 most common ones of react-redux)
+
+// STORE, REDUCER, STATE ONLY - NO EVENT HANDLER JUST YET
 
 // redux-persist used to store data in localstorage so that it doesn't disappear on page reload
 // stores data in f12->application tab->local storage tab.
 // you can delete persist:root
 // configure persist with lib
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+// import { persistStore, persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
 
 // ctrl+shift+w + div.box
 
@@ -35,21 +37,21 @@ const initialState = {
   content: "Lorem ipsum dolor sit amet.",
 };
 
-const persistConfig = {
-  key: "root",
-  // storage: 1. cookie 2. session 3. localstorage
-  // localstorage is most commonly used as storage
-  // if you use session you need to put session value in database
-  storage,
-};
+// const persistConfig = {
+//   key: "root",
+//   // storage: 1. cookie 2. session 3. localstorage
+//   // localstorage is most commonly used as storage
+//   // if you use session you need to put session value in database
+//   storage,
+// };
 
-const myPersistReducer = persistReducer(persistConfig, reducer);
+// const myPersistReducer = persistReducer(persistConfig, reducer);
 
-// const store = createStore(reducer, initialState);
-const store = createStore(myPersistReducer);
+const store = createStore(reducer, initialState);
+// const store = createStore(myPersistReducer);
 
 // // persistor is the one that actually stores
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
 const App = () => {
   return (
