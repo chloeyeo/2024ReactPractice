@@ -49,7 +49,7 @@ const myPersistReducer = persistReducer(persistConfig, reducer); // initial stat
 // const store = createStore(reducer, initialState);
 const store = createStore(myPersistReducer);
 
-// // persistor is the one that actually stores
+// persistor is the one that actually stores
 // without persistStore the data won't be stored in localstorage at all.
 const persistor = persistStore(store);
 
