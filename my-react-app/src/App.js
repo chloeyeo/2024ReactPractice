@@ -16,7 +16,7 @@ import { useDispatch, useSelector, Provider } from "react-redux";
 
 const counterStore = createSlice({
   name: "countNum",
-  initialStat: { num: 0 },
+  initialState: { num: 100 },
   reducers: {
     up: (state, action) => {
       state.num += action.payload;
@@ -24,18 +24,24 @@ const counterStore = createSlice({
   },
 }); // receives an object {} whose key-value pairs can be anything
 const store = configureStore({
-  reducer: { counter: counterStore.reducers },
+  reducer: { counter: counterStore.reducer }, // {} object of STATES
 }); // counter is state, counterStore is the 'slice' of store used in redux toolkit
 const App = () => {
   return (
     <Provider store={store}>
-      <ChildOne />
+      <div>
+        <h1>test</h1>
+        <ChildOne />
+      </div>
     </Provider>
   );
 };
 
 const ChildOne = () => {
-  return <div>test</div>;
+  const num = useSelector((state) => {
+    return state.counter.num;
+  });
+  return <div>ChildOne num: {num}</div>;
 };
 
 export default App;
