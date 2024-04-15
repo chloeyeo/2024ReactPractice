@@ -1,47 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./assets/css/tailwindStyle.css";
-import Counter from "./components/Counter";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { useDispatch, useSelector, Provider } from "react-redux";
-// provider is at the outermost component => index.js
+import axios from "axios";
+import { getUser } from "./api/api";
 
-// const obj = {
-//   name: "sonata",
-//   run: (num) => {
-//     console.log(num);
-//   },
-// };
-
-// obj.run(1);
-
-const counterStore = createSlice({
-  name: "countNum",
-  initialState: { num: 100 },
-  reducers: {
-    up: (state, action) => {
-      state.num += action.payload;
-    },
-  },
-}); // receives an object {} whose key-value pairs can be anything
-const store = configureStore({
-  reducer: { counter: counterStore.reducer }, // {} object of STATES
-}); // counter is state, counterStore is the 'slice' of store used in redux toolkit
-const App = () => {
+function App() {
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    // cannot put async keyword directly to useEffect!
+    // so should create another function inside useEffect e.g. callApi
+    // and put async keyword to That function.
+    const callApi = async () => {
+      try {
+        // const user = await axios.get("http://localhost:4000/user");
+        const user = await getUser();
+        console.log(user);
+        console.log(user.users);
+        setUserData(user.users);
+        console.log(userData);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+    callApi();
+    setUserData([]);
+  }, []);
   return (
-    <Provider store={store}>
-      <div>
-        <h1>test</h1>
-        <ChildOne />
-      </div>
-    </Provider>
+    <div>
+      {userData?.map((item, index) => {
+        return <li key={index}>{item.email}</li>;
+      })}
+    </div>
   );
-};
-
-const ChildOne = () => {
-  const num = useSelector((state) => {
-    return state.counter.num;
-  });
-  return <div>ChildOne num: {num}</div>;
-};
+}
 
 export default App;
