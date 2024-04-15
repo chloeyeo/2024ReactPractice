@@ -1,6 +1,6 @@
 import React from "react";
 import "./assets/css/tailwindStyle.css";
-import { createStore } from "redux";
+import { createStore } from "redux"; // 1. create store
 import { Provider, useSelector, useDispatch } from "react-redux";
 
 // redux-persist used to store data in localstorage so that it doesn't disappear on page reload
@@ -8,7 +8,7 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 // you can delete persist:root
 // configure persist with lib
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage"; // identify which storage to use
 
 // ctrl+shift+w + div.box
 
@@ -36,6 +36,7 @@ const initialState = {
 };
 
 const persistConfig = {
+  // configure the reducer settings
   key: "root",
   // storage: 1. cookie 2. session 3. localstorage
   // localstorage is most commonly used as storage
@@ -43,7 +44,7 @@ const persistConfig = {
   storage,
 };
 
-const myPersistReducer = persistReducer(persistConfig, reducer);
+const myPersistReducer = persistReducer(persistConfig, reducer); // initial state not put here so must specify initial state in param of reducer function
 
 // const store = createStore(reducer, initialState);
 const store = createStore(myPersistReducer);
@@ -68,8 +69,9 @@ const App = () => {
 };
 
 function ChildOne() {
+  // use useSelector to USE/acceess/subscribe to the global state in child component (USE only! NOT changing state)
   const content = useSelector((state) => {
-    return state.content;
+    return state.content; // can extract out specific parts of state to use/subscribe to
   });
   return (
     <>
@@ -84,7 +86,7 @@ function ChildOne() {
 
 function ChildTwo() {
   const { num, title } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // to CHANGE state in child component, use useDispatch()!!
   return (
     <>
       <div className="box border p-4">
@@ -94,7 +96,10 @@ function ChildTwo() {
         <button
           className="border bg-slate-600 text-white px-3 py-1 rounded-md hover:bg-slate-300 hover:text-black"
           onClick={() => {
-            dispatch({ type: "num/increment", payload: 1 });
+            // on button click change state by calling useDispatch()
+            dispatch({ type: "num/increment", payload: 1 }); // dispatch() always receives an ACTION OBJECT {} as its parameter!
+            // the {type:...payload:..} here is an action object, its key values can be anything; keys can be named anything and can have any number of key-value pairs.
+            // once dispatch is called, the action object is dispatched and the action gets passed into the reducer -> and the reducer changes state!
           }}
         >
           click
