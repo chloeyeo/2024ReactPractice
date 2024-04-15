@@ -12,7 +12,10 @@ function App() {
     const callApi = async () => {
       try {
         // const user = await axios.get("http://localhost:4000/user");
-        const user = await getUser();
+        const user = await getUser(); // need to add another await here!!
+        // getUser itself has await to await the data coming in
+        // and once that data came in we also call getUser here to
+        // bring that loaded data into user so we need another await to wait for that!
         console.log(user);
         console.log(user.users);
         setUserData(user.users);
