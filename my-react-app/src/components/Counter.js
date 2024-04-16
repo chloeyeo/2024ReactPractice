@@ -11,7 +11,7 @@ const Counter = ({ data }) => {
   const { num, title, content } = useSelector((state) => state);
   const dispatch = useDispatch();
   function handleClick() {
-    dispatch({ type: "up", payload: 1 }); // action object passed into useDpatch as parameter.
+    dispatch({ type: "up", payload: 1 }); // action object passed into useDispatch as parameter.
   }
   return (
     <>
